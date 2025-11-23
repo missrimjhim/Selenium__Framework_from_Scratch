@@ -7,8 +7,7 @@
         <methods>
           <include name="tear_down"/>
           <include name="setup"/>
-          <include name="TC03_Negative_password_test"/>
-          <include name="TC02_Negative_username_test"/>
+          <include name="TC01_Positive_LogIn_test"/>
         </methods>
       </class> <!-- com.test.googletestcases.PracticeAutomationTestcases -->
     </classes>
