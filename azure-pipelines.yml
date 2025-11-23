@@ -28,7 +28,7 @@ steps:
   condition: always()                  # <-- NEVER SKIP
   
   inputs:
-    PathtoPublish: 'test-output'
+    PathtoPublish: 'target/surefire-reports'
     ArtifactName: 'TestNG-Reports'
     publishLocation: 'Container'
 
