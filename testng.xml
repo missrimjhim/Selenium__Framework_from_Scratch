@@ -4,6 +4,7 @@
  <listeners>
     <listener class-name="com.test.utils.CustomListener"/>
     <listener class-name="com.test.utils.ReporterUtil"/>
+    <listener class-name="com.test.utils.RetryListener"/>
   </listeners>
   <test thread-count="5" name="Test">
     <classes>
