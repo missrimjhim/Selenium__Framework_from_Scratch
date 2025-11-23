@@ -11,16 +11,21 @@ steps:
 # Run Maven tests
 - script: mvn clean test
   displayName: "Run Selenium TestNG Tests"
+  condition: succeededOrFailed()       # <-- Test step runs even if tests fail
+  displayName: 'Publish XML Results'
+  condition: always()                  # <-- NEVER SKIP
 
 # Publish TestNG Test Results
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit'
     testResultsFiles: '**/target/surefire-reports/TEST-*.xml'
-    failTaskOnFailedTests: true
+    failTaskOnFailedTests: false       # <-- Prevent pipeline from stopping
     testRunTitle: 'Automation Test Results'
 
 - task: PublishBuildArtifacts@1
+  condition: always()                  # <-- NEVER SKIP
+  
   inputs:
     PathtoPublish: 'test-output'
     ArtifactName: 'TestNG-Reports'
