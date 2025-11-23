@@ -32,11 +32,6 @@ public class CustomListener implements ITestListener {
     @Override
     public void onTestFailure(ITestResult result) {
     	Reporter.setCurrentTestResult(result);
-
-    	    if (result.getMethod().getRetryAnalyzer(result) != null) {
-    	        int retryCount = ((RetryFailedTestCases) result.getMethod().getRetryAnalyzer(result)).retryCount;
-    	        Reporter.log("[RETRY] Attempt: " + retryCount, true);
-    	    }
     	
 
         Reporter.log("<font color='red'>[FAIL] Test failed: "
