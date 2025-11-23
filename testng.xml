@@ -3,6 +3,7 @@
 <suite name="Suite">
  <listeners>
     <listener class-name="com.test.utils.CustomListener"/>
+    <listener class-name="com.test.utils.ReporterUtil"/>
   </listeners>
   <test thread-count="5" name="Test">
     <classes>
