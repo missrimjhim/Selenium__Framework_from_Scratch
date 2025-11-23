@@ -8,7 +8,7 @@ public class PracticeAutomationTestcases extends Pagefactory {
 	@Test
 	public void TC01_Positive_LogIn_test(){
 		LoginPage().enterUsername("student");
-		LoginPage().enterPassword("Password123");
+		LoginPage().enterPassword("Password12");
 		LoginPage().clickLogin();
 		LoginPage().isSuccessMessageDisplayed();
 		LoginPage().isUrlCorrect();

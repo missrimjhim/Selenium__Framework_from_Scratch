@@ -3,6 +3,7 @@ package com.test.base;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.testng.Reporter;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import com.test.utils.ReadConfig;
@@ -33,6 +34,8 @@ public class Initialization {
 			default:
 				throw new IllegalArgumentException("Browser Not Supported:"+ browser);
 		}
+		Reporter.getCurrentTestResult().getTestContext().setAttribute("driver", driver);
+
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
 		driver.get(url);
