@@ -15,7 +15,7 @@ public class TakeScreenshotUtil {
     // Method to capture screenshot and return file path
     public static String captureScreenshot(WebDriver driver, String screenshotName) {
 
-        // Create timestamp for unique file name
+        
         String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
 
         // Build file path (cross-platform)
