@@ -1,0 +1,28 @@
+trigger:
+  - main
+
+pool:
+  name: lenovo
+
+steps:
+- checkout: self
+
+
+# Run Maven tests
+- script: mvn clean test
+  displayName: "Run Selenium TestNG Tests"
+
+# Publish TestNG Test Results
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/target/surefire-reports/TEST-*.xml'
+    failTaskOnFailedTests: true
+    testRunTitle: 'Automation Test Results'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: 'test-output'
+    ArtifactName: 'TestNG-Reports'
+    publishLocation: 'Container'
+
