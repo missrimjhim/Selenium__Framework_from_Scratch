@@ -12,11 +12,12 @@ steps:
 - script: mvn clean test
   displayName: "Run Selenium TestNG Tests"
   condition: succeededOrFailed()       # <-- Test step runs even if tests fail
-  displayName: 'Publish XML Results'
-  condition: always()                  # <-- NEVER SKIP
+  
 
 # Publish TestNG Test Results
 - task: PublishTestResults@2
+  displayName: 'Publish Testng XML Results'
+  condition: always()                  # <-- NEVER SKIP
   inputs:
     testResultsFormat: 'JUnit'
     testResultsFiles: '**/target/surefire-reports/TEST-*.xml'
