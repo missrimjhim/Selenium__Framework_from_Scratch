@@ -1,5 +1,7 @@
 package com.test.googletestcases;
 
+import java.util.Map;
+
 import org.testng.annotations.Test;
 
 import com.test.base.Pagefactory;
@@ -7,8 +9,13 @@ import com.test.base.Pagefactory;
 public class PracticeAutomationTestcases extends Pagefactory {
 	@Test
 	public void TC01_Positive_LogIn_test(){
-		LoginPage().enterUsername("student");
-		LoginPage().enterPassword("Password12");
+		System.out.println("TEST STARTED");
+		Map<String, String> testdata=excel_Reader().getTestData("Sheet1", "TC01_Positive LogIn test");
+		//System.out.println("testdata:"+testdata);
+		System.out.println("Username: " + testdata.get("Username"));
+		System.out.println("Password: " + testdata.get("Password"));
+		LoginPage().enterUsername(testdata.get("Username"));
+		LoginPage().enterPassword(testdata.get("Password"));
 		LoginPage().clickLogin();
 		LoginPage().isSuccessMessageDisplayed();
 		LoginPage().isUrlCorrect();
@@ -16,16 +23,18 @@ public class PracticeAutomationTestcases extends Pagefactory {
 	}
 	@Test
 	public void TC02_Negative_username_test() {
-		LoginPage().enterUsername("incorrectUser");
-		LoginPage().enterPassword("Password123");
+		Map<String, String> testdata=excel_Reader().getTestData("Sheet1", "TC02_Negative username test");
+		LoginPage().enterUsername(testdata.get("Username"));
+		LoginPage().enterPassword(testdata.get("Password"));
 		LoginPage().clickLogin();
 		LoginPage().isErrormessageDisplayed();
-		
 	}
+	
 	@Test
 	public void TC03_Negative_password_test() {
-		LoginPage().enterUsername("student");
-		LoginPage().enterPassword("incorrectPassword");
+		Map<String, String> testdata=excel_Reader().getTestData("Sheet1", "TC03_Negative password test");
+		LoginPage().enterUsername(testdata.get("Username"));
+		LoginPage().enterPassword(testdata.get("Password"));
 		LoginPage().clickLogin();
 		LoginPage().isInvalidPasswordDisplayed();
 		
