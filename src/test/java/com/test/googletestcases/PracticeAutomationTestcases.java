@@ -11,9 +11,6 @@ public class PracticeAutomationTestcases extends Pagefactory {
 	public void TC01_Positive_LogIn_test(){
 		System.out.println("TEST STARTED");
 		Map<String, String> testdata=excel_Reader().getTestData("Sheet1", "TC01_Positive LogIn test");
-		//System.out.println("testdata:"+testdata);
-		System.out.println("Username: " + testdata.get("Username"));
-		System.out.println("Password: " + testdata.get("Password"));
 		LoginPage().enterUsername(testdata.get("Username"));
 		LoginPage().enterPassword(testdata.get("Password"));
 		LoginPage().clickLogin();
