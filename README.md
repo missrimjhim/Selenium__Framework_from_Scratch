@@ -14,6 +14,7 @@ Design Pattern: Page Object Model (POM),
 Reports: TestNG HTML, Surefire JUnit XML,
 CI/CD: Azure DevOps,
 Screenshot: File + Base64 on test failure.
+Excel: Apache Poi
 
 Key Features:
 
